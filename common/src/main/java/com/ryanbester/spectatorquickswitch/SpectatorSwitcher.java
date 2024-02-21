@@ -13,11 +13,11 @@ public class SpectatorSwitcher {
             if (!player.hasPermissions(2)) {
                 player.displayClientMessage(Component.translatable("debug.creative_spectator.error"), false);
             } else if (!player.isSpectator()) {
-                player.connection.sendUnsignedCommand("gamemode spectator");
+                player.commandUnsigned("gamemode spectator");
             } else {
                 if (Minecraft.getInstance().gameMode != null) {
                     GameType gameMode = Minecraft.getInstance().gameMode.getPreviousPlayerMode();
-                    player.connection.sendUnsignedCommand("gamemode " + MoreObjects.firstNonNull(gameMode, GameType.CREATIVE).getName());
+                    player.commandUnsigned("gamemode " + MoreObjects.firstNonNull(gameMode, GameType.CREATIVE).getName());
                 }
             }
         }
